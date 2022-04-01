@@ -37,6 +37,25 @@ The required versions of MMCV, MMDetection and MMSegmentation for different vers
 
 ## Install MMDetection3D
 
+### Quick installation instructions script
+
+Assuming that you already have CUDA 11.0 installed, here is a full script for quick installation of MMDetection3D with conda.
+Otherwise, you should refer to the step-by-step installation instructions in the next section.
+
+```shell
+conda create -n open-mmlab python=3.7 pytorch=1.9 cudatoolkit=11.0 torchvision -c pytorch -y
+conda activate open-mmlab
+pip3 install openmim
+mim install mmcv-full
+mim install mmdet
+mim install mmsegmentation
+git clone https://github.com/open-mmlab/mmdetection3d.git
+cd mmdetection3d
+pip3 install -e .
+```
+
+### Step-by-step installation instructions
+
 **a. Create a conda virtual environment and activate it.**
 
 ```shell
@@ -111,7 +130,7 @@ pip install mmcv-full
 **d. Install [MMDetection](https://github.com/open-mmlab/mmdetection).**
 
 ```shell
-pip install mmdet==2.14.0
+pip install mmdet
 ```
 
 Optionally, you could also build MMDetection from source in case you want to modify the code:
@@ -119,7 +138,7 @@ Optionally, you could also build MMDetection from source in case you want to mod
 ```shell
 git clone https://github.com/open-mmlab/mmdetection.git
 cd mmdetection
-git checkout v2.14.0  # switch to v2.14.0 branch
+git checkout v2.19.0  # switch to v2.19.0 branch
 pip install -r requirements/build.txt
 pip install -v -e .  # or "python setup.py develop"
 ```
@@ -127,7 +146,7 @@ pip install -v -e .  # or "python setup.py develop"
 **e. Install [MMSegmentation](https://github.com/open-mmlab/mmsegmentation).**
 
 ```shell
-pip install mmsegmentation==0.14.1
+pip install mmsegmentation
 ```
 
 Optionally, you could also build MMSegmentation from source in case you want to modify the code:
@@ -135,7 +154,7 @@ Optionally, you could also build MMSegmentation from source in case you want to 
 ```shell
 git clone https://github.com/open-mmlab/mmsegmentation.git
 cd mmsegmentation
-git checkout v0.14.1  # switch to v0.14.1 branch
+git checkout v0.20.0  # switch to v0.20.0 branch
 pip install -e .  # or "python setup.py develop"
 ```
 

@@ -34,6 +34,24 @@
 
 ## MMdetection3D 安装流程
 
+### 快速安装脚本
+
+如果你已经成功安装 CUDA 11.0，那么你可以使用这个快速安装命令进行 MMDetection3D 的安装。 否则，则参考下一小节的详细安装流程。
+
+```shell
+conda create -n open-mmlab python=3.7 pytorch=1.9 cudatoolkit=11.0 torchvision -c pytorch -y
+conda activate open-mmlab
+pip3 install openmim
+mim install mmcv-full
+mim install mmdet
+mim install mmsegmentation
+git clone https://github.com/open-mmlab/mmdetection3d.git
+cd mmdetection3d
+pip3 install -e .
+```
+
+### 详细安装流程
+
 **a. 使用 conda 新建虚拟环境，并进入该虚拟环境。**
 
 ```shell
@@ -102,7 +120,7 @@ pip install mmcv-full
 **d. 安装 [MMDetection](https://github.com/open-mmlab/mmdetection).**
 
 ```shell
-pip install mmdet==2.14.0
+pip install mmdet
 ```
 
 同时，如果你想修改这部分的代码，也可以通过以下命令从源码编译 MMDetection：
@@ -110,7 +128,7 @@ pip install mmdet==2.14.0
 ```shell
 git clone https://github.com/open-mmlab/mmdetection.git
 cd mmdetection
-git checkout v2.14.0  # 转到 v2.14.0 分支
+git checkout v2.19.0  # 转到 v2.19.0 分支
 pip install -r requirements/build.txt
 pip install -v -e .  # or "python setup.py develop"
 ```
@@ -118,25 +136,16 @@ pip install -v -e .  # or "python setup.py develop"
 **e. 安装 [MMSegmentation](https://github.com/open-mmlab/mmsegmentation).**
 
 ```shell
-pip install mmsegmentation==0.14.1
+pip install mmsegmentation
 ```
 同时，如果你想修改这部分的代码，也可以通过以下命令从源码编译 MMSegmentation：
 
 ```shell
 git clone https://github.com/open-mmlab/mmsegmentation.git
 cd mmsegmentation
-git checkout v0.14.1  # switch to v0.14.1 branch
+git checkout v0.20.0  # switch to v0.20.0 branch
 pip install -e .  # or "python setup.py develop"
 ```
-
-**f. 克隆 MMDetection3D 代码仓库**
-
-```shell
-git clone https://github.com/open-mmlab/mmdetection3d.git
-cd mmdetection3d
-```
-
-
 
 **g. 安装依赖包和 MMDetection3D.**
 
